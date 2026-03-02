@@ -1,0 +1,10 @@
+<div *ngIf="suggestion">
+  <h2>{{ suggestion.title }}</h2>
+  <p>{{ suggestion.description }}</p>
+  <p>Catégorie: {{ suggestion.category }}</p>
+  <p>Statut: {{ suggestion.status }}</p>
+  <p>Date: {{ suggestion.date | date }}</p>
+  <p>Likes: {{ suggestion.nbLikes }}</p>
+
+  <button (click)="backToList()">Back to list</button>
+</div>

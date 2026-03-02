@@ -1,0 +1,10 @@
+/* ===== HOME PAGE ===== */
+
+p, input[type="text"] {
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  border-color: #eee;
+  margin: 1rem 0;
+}

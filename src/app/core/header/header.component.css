@@ -1,0 +1,82 @@
+/* ===== layout.css — Navbar · Footer · Home ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;600&display=swap');
+
+:root {
+  --primary:      #2563eb;
+  --primary-dark: #1d4ed8;
+  --accent:       #f59e0b;
+  --dark:         #0f172a;
+  --text:         #334155;
+  --muted:        #94a3b8;
+  --bg:           #f8fafc;
+  --white:        #ffffff;
+  --border:       #e2e8f0;
+  --shadow:       0 4px 24px rgba(15,23,42,0.08);
+  --radius:       10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Navbar ─────────────────────────────── */
+
+.navbar {
+  background: var(--white) !important;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 0.6rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--primary) !important;
+  letter-spacing: -0.5px;
+}
+
+.navbar-brand::before {
+  content: '◆ ';
+  color: var(--accent);
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text) !important;
+  padding: 0.4rem 0.9rem !important;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover,
+.nav-item.active .nav-link {
+  background: #eff6ff;
+  color: var(--primary) !important;
+}
+
+.nav-link.disabled {
+  color: var(--muted) !important;
+}
+
+/* ── Home page ───────────────────────────── */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1rem 0;
+}
+

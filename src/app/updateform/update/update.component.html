@@ -1,0 +1,118 @@
+<br />
+<br />
+<form [formGroup]="suggform">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Name</span>
+    </div>
+    <input
+      type="text"
+      aria-label="First name"
+      formControlName="title"
+      class="form-control"
+    />
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('title')?.touched &&
+      suggform.get('title')?.errors?.['required']
+    "
+  >
+    Name is required
+  </div>
+
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('title')?.touched &&
+      suggform.get('title')?.errors?.['maxlength']
+    "
+  >
+    Name max length 10
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('title')?.touched && suggform.get('title')?.errors?.['pattern']
+    "
+  >
+    Name doit commence par majus
+  </div>
+  <br />
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">description</span>
+    </div>
+    <input
+      type="text"
+      aria-label="First name"
+      formControlName="description"
+      class="form-control"
+    />
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="description?.touched && description?.errors?.['required']"
+  >
+    Description is required
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="description?.touched && description?.errors?.['minlength']"
+  >
+    Description min length 10
+  </div>
+  <br />
+  <select
+    class="form-select"
+    formControlName="category"
+    aria-label="Default select example"
+  >
+    <option selected>Open this select menu</option>
+    <option *ngFor="let c of categorie" [value]="c">{{ c }}</option>
+  </select>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('category')?.touched &&
+      suggform.get('category')?.errors?.['required']
+    "
+  >
+    categorie is required
+  </div>
+  <br />
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">status</span>
+    </div>
+    <input
+      type="text"
+      aria-label="First name"
+      formControlName="status"
+      class="form-control"
+    />
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('status')?.touched &&
+      suggform.get('status')?.errors?.['required']
+    "
+  >
+    status is required
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('status')?.touched &&
+      suggform.get('status')?.errors?.['pattern']
+    "
+  >
+    status doit etre 'en-attente'
+  </div>
+  <br />
+  <button class="btn btn-primary" [disabled]="suggform.invalid" (click)="update()">
+    save
+  </button>
+</form>

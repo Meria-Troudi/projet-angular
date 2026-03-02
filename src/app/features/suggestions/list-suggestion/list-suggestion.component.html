@@ -1,0 +1,37 @@
+
+
+<br />
+<br />
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Search</span>
+  </div>
+  <input type="text" aria-label="First name" [(ngModel)]="searchText" >
+  
+</div>
+<br />
+<div class="row">
+  <div class="card" style="width: 18rem" *ngFor="let a of  searchbytitle()" >
+    <div class="card-body">
+      <h5 class="card-title">{{ a.title }}</h5>
+      <p class="card-text">
+        {{ a.date | date }}
+      </p>
+         <p class="card-text">
+        {{ a.nbLikes }}
+      </p>
+    <div *ngIf="a.status=='acceptee' || a.status=='en-attente' || a.status=='refusee'">
+      <button class="btn btn-primary" (click)="like(a)">Like</button>
+      <button class="btn btn-success">Ajouter aux favoris</button>   
+      <button class="btn btn-info" [routerLink]="[a.id]">Details</button>
+<button class="btn btn-danger" (click)="deletesugg(a.id)">Delete</button>
+         <button class="btn btn-danger" [routerLink]="['/update',a.id]">update</button>    </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary" routerLink="ajouter">
+  Ajouter suggestion
+</button>
+<br />
+<br />
+<br />
